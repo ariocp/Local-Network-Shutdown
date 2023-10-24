@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 
 function shutdownMachine(ipAddresses) {
     ipAddresses.forEach((ipAddress) => {
-        const command = process.platform === 'win32' ? `shutdown /s /m \\\\${ipAddress} /t 0` : `ssh user@${ipAddress} "sudo poweroff"`;
+        const command = process.platform === 'win32' ? `shutdown /s /m \\\\${ipAddress} /t 0` : `ssh user@${ipAddress} "poweroff"`;
 
         exec(command, (error, stdout, stderr) => {
             if (error) {
