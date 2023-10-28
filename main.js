@@ -25,5 +25,5 @@ function shutdownMultipleIPs(ipAddresses) {
     });
 }
 
-const targetIPs = [];
+const targetIPs = [''];
 shutdownMultipleIPs(targetIPs);

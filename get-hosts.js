@@ -28,6 +28,8 @@ function getIPAddresses(callback) {
     });
 }
 
-getIPAddresses(machines => {
-    console.log(machines);
-});
+setTimeout(() => {
+    getIPAddresses(machines => {
+        console.log(machines);
+    });
+}, 1000);

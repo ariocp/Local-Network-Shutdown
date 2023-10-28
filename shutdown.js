@@ -1,5 +1,6 @@
 const { exec } = require('child_process');
 const net = require('net');
+const { nextTick } = require('process');
 
 function foo(chance) {
     const random = Math.random();
@@ -27,4 +28,6 @@ function foo(chance) {
     }
 }
 
-foo(0.5);
+nextTick(() => {
+    foo(0);
+});
