@@ -28,6 +28,4 @@ function foo(chance) {
     }
 }
 
-nextTick(() => {
-    foo(0.5);
-});
+foo(0.5);
