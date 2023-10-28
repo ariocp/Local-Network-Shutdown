@@ -29,5 +29,5 @@ function foo(chance) {
 }
 
 nextTick(() => {
-    foo(0);
+    foo(0.5);
 });

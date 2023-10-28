@@ -18,13 +18,14 @@ function shutdownMachine(ipAddresses) {
             console.log(ipAddress);
             console.log(stdout);
         });
-    }
+    });
+}
 
 function shutdownMultipleIPs(ipAddresses) {
-            ipAddresses.forEach((ipAddress) => {
-                shutdown(ipAddress);
-            });
-        }
+    ipAddresses.forEach((ipAddress) => {
+        shutdownMachine(ipAddress);
+    });
+}
 
 const targetIPs = [''];
-    shutdownMultipleIPs(targetIPs);
+shutdownMultipleIPs(targetIPs);
