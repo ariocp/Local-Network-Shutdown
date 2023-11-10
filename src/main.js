@@ -7,7 +7,7 @@ const executeCommand = async (command) => {
     return new Promise((resolve, reject) => {
         exec(command, (error, stdout) => {
             if (error) {
-                reject(error);
+                reject(`Error: ${error}`);
             } else {
                 resolve(stdout);
             }
@@ -42,4 +42,4 @@ executeCommand(command)
     })
     .catch((error) => {
         console.error(error);
-    })
+    });
