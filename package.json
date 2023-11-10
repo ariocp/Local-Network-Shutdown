@@ -1,0 +1,19 @@
+{
+  "name": "local-network-shutdown",
+  "version": "2.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ./src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariocp/local-network-shutdown.git"
+  },
+  "author": "ariocp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ariocp/local-network-shutdown/issues"
+  },
+  "homepage": "https://github.com/ariocp/local-network-shutdown#readme"
+}
