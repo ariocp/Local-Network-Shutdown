@@ -1,45 +1,14 @@
-const { exec } = require("child_process");
-const { stdout } = require("process");
+const { executeCommand, processAddresses } = require("./utils/shutdown");
 
-let command = "arp -a";
-
-const executeCommand = async (command) => {
-    return new Promise((resolve, reject) => {
-        exec(command, (error, stdout) => {
-            if (error) {
-                reject(`Error: ${error}`);
-            } else {
-                resolve(stdout);
-            }
-        });
-    });
-};
-
-const executeShutdownCommand = async (address) => {
-    return new Promise((resolve, reject) => {
-        command = `shutdown /s /m \\\\${address}`;
-
-        exec(command, (error, stdout) => {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(stdout);
-            }
-        });
-    });
-};
-
-const processAddresses = async (addresses) => {
-    addresses.forEach(async (address) => {
-        executeShutdownCommand(address);
-    });
-};
-
-executeCommand(command)
-    .then((stdout) => {
+const bootstrap = async () => {
+    try {
+        const command = "arp -a";
+        const stdout = await executeCommand(command);
         const addresses = stdout.split("\n");
-        processAddresses(addresses);
-    })
-    .catch((error) => {
+        await processAddresses(addresses);
+    } catch (error) {
         console.error(error);
-    });
+    }
+}
+
+bootstrap();
